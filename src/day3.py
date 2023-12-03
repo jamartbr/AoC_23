@@ -23,14 +23,15 @@ while i<n:
                 p1 += int(f[i][inicio+1:fin-1])
 
                 # Parte 2
-                x = aux.span()[0]//(fin-inicio) + i - 1
-                y = aux.span()[0]%(fin-inicio) + inicio
-                try:
-                    a = s[(x,y)][0] * int(f[i][inicio+1:fin-1])
-                    b = s[(x,y)][1] + 1
-                    s[(x,y)] = (a,b)
-                except:
-                    s[(x,y)] = (int(f[i][inicio+1:fin-1]),1)
+                if aux.group()=="*":
+                    x = aux.span()[0]//(fin-inicio) + i - 1
+                    y = aux.span()[0]%(fin-inicio) + inicio
+                    try:
+                        a = s[(x,y)][0] * int(f[i][inicio+1:fin-1])
+                        b = s[(x,y)][1] + 1
+                        s[(x,y)] = (a,b)
+                    except:
+                        s[(x,y)] = (int(f[i][inicio+1:fin-1]),1)
         
         i = i+1 if j==m-1 else i
         j = 1 if j==m-1 and i<n else j+1
