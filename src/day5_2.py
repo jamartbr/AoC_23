@@ -28,5 +28,6 @@ while True not in [seed in range(s[0],s[0]+s[1]) for s in seeds]:
             if seed>=m[0] and seed<m[0]+m[2]:
                 seed = seed+m[1]-m[0]
                 break
-    print(loc)
-print(seed)
+    if loc%100000 == 0:
+        print(loc)
+print(loc)
