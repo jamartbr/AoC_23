@@ -3,6 +3,7 @@ with open(file_path, "r") as f:
     lines = [x.strip() for x in f.readlines()]
 
 seeds = [int(x) for x in lines[0].split()[1:]]
+nSeeds = [(seeds[i],seeds[i+1]) for i in range(0,len(seeds),2)]
 
 maps = []
 i = 1
@@ -15,13 +16,9 @@ while i<len(lines):
         if len(maps) <= n:
             maps.append([])
         maps[n].append([int(x) for x in lines[i].split()])
-        # for j in range(r):
-        #     dest = destStart+j
-        #     source = sourceStart+j
-        #     if len(maps) <= m:
-        #         maps.append({})
-        #     maps[m][source] = dest
         i+=1
+
+# Parte 1
 
 s = []
 for i in seeds:
@@ -32,3 +29,18 @@ for i in seeds:
                 break
     s.append(i)
 print(min(s))
+
+
+# Parte 2
+
+loc = 0
+seed = 0
+while True not in [seed in range(s[0],s[0]+s[1]) for s in nSeeds]:
+    loc += 1
+    seed = loc
+    for j in maps[::-1]:
+        for m in j:
+            if seed>=m[0] and seed<m[0]+m[2]:
+                seed = seed+m[1]-m[0]
+                break
+print(loc)
