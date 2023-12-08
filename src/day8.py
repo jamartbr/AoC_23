@@ -46,7 +46,6 @@ for n in grafo:
         aux = Parte2(n, grafo, c)
         s.append(aux)
         c += aux
-print(s)
 
 s = reduce((lambda x,y:int(x*y/gcd(x,y))), s) # minimo comun multiplo
 print(s)
