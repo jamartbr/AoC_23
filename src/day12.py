@@ -34,7 +34,7 @@ def getPosibles(line,nums,i):
 
 ###############################################################################
 
-file_path = "/home/jaime/Documentos/AoC_23/data/day12.txt"
+file_path = "../data/day12.txt"
 with open(file_path, "r") as f:
     lines = [x.strip() for x in f.readlines()]
 
